@@ -16,7 +16,7 @@
 			<h:form id="formEdit" style="text-align : center;">
 				<p:dataTable var="prod" value="#{produitMB.lProduits}">
 
-				<f:facet name="header">
+					<f:facet name="header">
           		Gestion des produits
     	 	  	</f:facet>
 
@@ -50,8 +50,8 @@
 					<p:column headerText="Categorie">
 						<h:outputText value="" />
 						<p:inplace id="categorieProduit" editor="true">
-							<p:inputText value="#{prod.categorie}"
-								required="true" label="Categorie" />
+							<p:inputText value="#{prod.categorie}" required="true"
+								label="Categorie" />
 						</p:inplace>
 					</p:column>
 

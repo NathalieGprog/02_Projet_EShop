@@ -10,42 +10,42 @@
 	<ui:composition
 		template="/WEB-INF/templateAdmin/basicTemplateAdmin.xhtml">
 		<ui:define name="content">
-		
+
 			<p:layoutUnit position="center" style=" text-align : center;">
 				<h3>Gestion des catégories</h3>
 			</p:layoutUnit>
-		
 
 
-<!-- 			<p:separator /> -->
-<!-- 			<h:form> -->
-				<p:dataTable var="cat" value="#{categorieMB.lCategories}">
-					<p:column headerText="Id">
-						<h:outputText value="#{cat.idCategorie}" />
-					</p:column>
 
-					<p:column headerText="Nom">
-						<h:outputText value="#{cat.nomCategorie}" />
-					</p:column>
+			<!-- 			<p:separator /> -->
+			<!-- 			<h:form> -->
+			<p:dataTable var="cat" value="#{categorieMB.lCategories}">
+				<p:column headerText="Id">
+					<h:outputText value="#{cat.idCategorie}" />
+				</p:column>
 
-					<p:column headerText="Description">
-						<h:outputText value="#{cat.description}" />
-					</p:column>
+				<p:column headerText="Nom">
+					<h:outputText value="#{cat.nomCategorie}" />
+				</p:column>
 
-<!-- 					<p:column headerText="Actions"> -->
-<!-- 						Modifier la catégorie -->
-<!-- 						<p:commandButton icon="ui-icon-bullet" -->
-<!-- 							action="#{categorieMB.modifierCategorie}" /> | -->
-<!-- 					<p:commandButton icon="ui-icon-trash" action="#" /> -->
-<!-- 					</p:column> -->
-<!-- 				<p:commandButton update="@all" action="#{produitMB.supprProduit}" -->
-<!-- 					icon="ui-icon-close"> -->
-<!-- 					<f:setPropertyActionListener target="#{produitMB.produit}" -->
-<!-- 						value="#{produitMB}" /> -->
-<!-- 				</p:commandButton> -->
-	
-				</p:dataTable>
-<!-- 			</h:form> -->
+				<p:column headerText="Description">
+					<h:outputText value="#{cat.description}" />
+				</p:column>
+
+				<!-- 					<p:column headerText="Actions"> -->
+				<!-- 						Modifier la catégorie -->
+				<!-- 						<p:commandButton icon="ui-icon-bullet" -->
+				<!-- 							action="#{categorieMB.modifierCategorie}" /> | -->
+				<!-- 					<p:commandButton icon="ui-icon-trash" action="#" /> -->
+				<!-- 					</p:column> -->
+				<!-- 				<p:commandButton update="@all" action="#{produitMB.supprProduit}" -->
+				<!-- 					icon="ui-icon-close"> -->
+				<!-- 					<f:setPropertyActionListener target="#{produitMB.produit}" -->
+				<!-- 						value="#{produitMB}" /> -->
+				<!-- 				</p:commandButton> -->
+
+			</p:dataTable>
+			<!-- 			</h:form> -->
 			<p:separator />
 			<h:form style="text-align : right;">
 				<!-- 	Ajouter catégorie -->

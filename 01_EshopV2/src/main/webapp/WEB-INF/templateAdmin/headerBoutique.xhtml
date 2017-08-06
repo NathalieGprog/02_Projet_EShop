@@ -13,22 +13,27 @@
 			<h1 align="center">BACK_OFFICE</h1>
 			<h3 align="center">Gestion du site de commerce</h3>
 		</div>
-		
+
 		<div align="right">
 			<h:form>
-			<p:inputText id="idDesignation" placeholder="Rechercher un produit par son nom"
-				value="#{produitMB.produit.designation}" />
-				<p:commandButton action="#{produitMB.rechercherProduit}" update="@all" icon=" ui-icon-search" style="margin-left: 10px;"/>
+				<p:inputText id="idDesignation"
+					placeholder="Rechercher un produit par son nom"
+					value="#{produitMB.produit.designation}" />
+				<p:commandButton action="#{produitMB.rechercherProduit}"
+					update="@all" icon=" ui-icon-search" style="margin-left: 10px;" />
 			</h:form>
 		</div>
-		
+
 		<div align="right">
 			<h:form>
-				<p:outputLabel value="Rechercher un produit : " for="rechercheHeader" />
-       			<p:autoComplete id="rechercheHeader" value="#{autoCompleteView.txt1}" completeMethod="#{autoCompleteView.completeText}" />
+				<p:outputLabel value="Rechercher un produit : "
+					for="rechercheHeader" />
+				<p:autoComplete id="rechercheHeader"
+					value="#{autoCompleteView.txt1}"
+					completeMethod="#{autoCompleteView.completeText}" />
 			</h:form>
 		</div>
-		
+
 		<div>
 			<h:form id="formMenuBoutique">
 				<p:tabMenu activeIndex="#{param.i}">
@@ -36,10 +41,12 @@
 						icon="ui-icon-home">
 						<f:param name="i" value="0" />
 					</p:menuitem>
-					<p:menuitem value="Catégories" action="#{categorieMB.listeCategoriesBoutique}">
+					<p:menuitem value="Catégories"
+						action="#{categorieMB.listeCategoriesBoutique}">
 						<f:param name="i" value="1" />
 					</p:menuitem>
-					<p:menuitem value="Produits" action="#{produitMB.listeProduitsBoutique}">
+					<p:menuitem value="Produits"
+						action="#{produitMB.listeProduitsBoutique}">
 						<f:param name="i" value="2" />
 					</p:menuitem>
 					<p:menuitem value="Achat" action="achat.xhtml"
