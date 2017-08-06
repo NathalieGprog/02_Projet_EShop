@@ -90,11 +90,6 @@ public class CategorieManagedBeanBoutique implements Serializable {
 		return "categoriesBoutique";
 	}
 
-	public int taille(){
-		
-		taille =  categorieService.obtenirTous().size();
-		
-	}
 
 	// public String associerCategorie() {
 	// categorieService.associer(categorie);
