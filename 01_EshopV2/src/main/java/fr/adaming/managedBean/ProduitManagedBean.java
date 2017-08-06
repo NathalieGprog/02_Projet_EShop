@@ -28,7 +28,7 @@ public class ProduitManagedBean implements Serializable {
 	private Categorie categorie;
 	private List<Produit> lProduits;
 	private List<Categorie> lCategorie;
-	private Map<Produit,Categorie> mapProduitCat;
+//	private Map<Produit,Categorie> mapProduitCat;
 
 	@ManagedProperty(value = "#{produitServiceBean}")
 	private IProduitService produitService;
@@ -45,7 +45,7 @@ public class ProduitManagedBean implements Serializable {
 	@PostConstruct // la méthode sera exécutée après
 	public void init() {
 		this.lProduits = (List<Produit>) produitService.obtenirTous();
-		this.mapProduitCat = produitService.obtenirCategorieDuProduit();
+//		this.mapProduitCat = produitService.obtenirCategorieDuProduit();
 //		this.lCategorie = (List<Categorie>) categorieService.obtenirTous();
 	}
 	/*************************************************
@@ -146,9 +146,9 @@ public class ProduitManagedBean implements Serializable {
 		return "produitParCategorie";
 	}
 	
-	public String obtenirCategorieDuProduitAffche(){
-		mapProduitCat = produitService.obtenirCategorieDuProduit();
-		return "test";
-	}
+//	public String obtenirCategorieDuProduitAffche(){
+//		Map<Produit,Categorie> mapProduitCat = produitService.obtenirCategorieDuProduit();
+//		return "test";
+//	}
 
 }

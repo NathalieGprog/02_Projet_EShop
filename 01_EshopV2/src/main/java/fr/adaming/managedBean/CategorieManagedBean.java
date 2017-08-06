@@ -9,7 +9,6 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
 import fr.adaming.entite.Categorie;
-import fr.adaming.entite.Produit;
 import fr.adaming.service.IGeneriqueService;
 
 @ManagedBean(name = "categorieMB")
@@ -115,25 +114,24 @@ public class CategorieManagedBean implements Serializable {
 	// categorieService.associer(categorie);
 	// }
 
-	// @Override
-	// public List<Produit> obtenirTousProduitsParCategorie(Categorie categorie)
-	// {
-	//
-	// List<Produit> lProduits = (List<Produit>) produitDaoImpl.obtenirTous();
-	// List<Produit> lProduitsParCat = new ArrayList<Produit>();
-	// int i = 0;
-	// for (Produit p : lProduits){
-	// System.out.println(p.getCategorie());
-	// if (categorie.equals(p.getCategorie())){
-	// lProduitsParCat.add(p);
-	// i++;
-	// }
-	// }
-	// if (i>0){
-	// return lProduitsParCat;
-	// }else{
-	// return null;
-	// }
-	// }
+//	@Override
+//	public List<Produit> obtenirTousProduitsParCategorie(Categorie categorie) {
+//
+//		List<Produit> lProduits = (List<Produit>) produitDaoImpl.obtenirTous();
+//		List<Produit> lProduitsParCat = new ArrayList<Produit>();
+//		int i = 0;
+//		for (Produit p : lProduits) {
+//			System.out.println(p.getCategorie());
+//			if (categorie.equals(p.getCategorie())) {
+//				lProduitsParCat.add(p);
+//				i++;
+//			}
+//		}
+//		if (i > 0) {
+//			return lProduitsParCat;
+//		} else {
+//			return null;
+//		}
+//	}
 
 }

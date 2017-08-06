@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "produits")
@@ -25,7 +26,7 @@ public class Produit {
 	private String description;
 	private double prix;
 	private int quantite;
-	@Column(nullable = false, columnDefinition = "TINYINT", length = 1)
+	@Transient
 	private boolean selectionne;
 
 	@ManyToOne
