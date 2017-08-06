@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Accueil Admin</title>
+</h:head>
+<h:body>
+
+
+
+
+	<ui:composition
+		template="/WEB-INF/templateAdmin/basicTemplateBoutique.xhtml">
+		<ui:define name="content">
+		
+				
+		<div align="right">
+			<h:form>
+				<p:outputLabel value="Rechercher un produit : "
+					for="rechercheHeader" />
+				<p:autoComplete id="rechercheHeader"
+					value="#{produitMBBoutique.produitB}"
+					completeMethod="#{produitMBBoutique.completeProduitB}" var="prod"
+					itemLabel="#{prod.designation}"
+					itemValue="#{prod}" converter="#{produitConverter}"
+					forceSelection="true" />
+					<h:messages style="color:red" />
+			</h:form>
+		</div>
+		
+		
+		
+			<h1 style="text-align: center">Client Trouvé</h1>
+
+	<p:dataTable var="prod" value="#{produitMB.produit}">
+		<p:column headerText="Id">
+			<h:outputText value="#{produitMB.produit.description}" />
+		</p:column>
+
+		<p:column headerText="Nom">
+			<h:outputText value="#{produitMB.produit.description}" />
+		</p:column>
+
+		<p:column headerText="Prénom">
+			<h:outputText value="#{produitMB.produit.prix}" />
+		</p:column>
+
+
+	</p:dataTable>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

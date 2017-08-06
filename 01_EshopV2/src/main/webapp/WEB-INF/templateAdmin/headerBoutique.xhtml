@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title>IGNORED</title>
@@ -10,30 +10,18 @@
 <h:body>
 	<ui:composition>
 		<div>
-			<h1 align="center">BACK_OFFICE</h1>
-			<h3 align="center">Gestion du site de commerce</h3>
+			<h1 align="center">Astre Shop</h1>
+			<h2 align="center">Vous êtes au bon endroit pour décrocher la Lune!</h2>
 		</div>
+		
+
 
 		<div align="right">
-			<h:form>
-				<p:inputText id="idDesignation"
-					placeholder="Rechercher un produit par son nom"
-					value="#{produitMB.produit.designation}" />
-				<p:commandButton action="#{produitMB.rechercherProduit}"
-					update="@all" icon=" ui-icon-search" style="margin-left: 10px;" />
-			</h:form>
-		</div>
 
-		<div align="right">
-			<h:form>
-				<p:outputLabel value="Rechercher un produit : "
-					for="rechercheHeader" />
-				<p:autoComplete id="rechercheHeader"
-					value="#{autoCompleteView.txt1}"
-					completeMethod="#{autoCompleteView.completeText}" />
-			</h:form>
+				<p:commandButton value="Rechercher Produit" action="produitTrouve.xhtml" icon=" ui-icon-search"/>
+				<br/>
 		</div>
-
+		
 		<div>
 			<h:form id="formMenuBoutique">
 				<p:tabMenu activeIndex="#{param.i}">
@@ -41,20 +29,21 @@
 						icon="ui-icon-home">
 						<f:param name="i" value="0" />
 					</p:menuitem>
-					<p:menuitem value="Catégories"
-						action="#{categorieMB.listeCategoriesBoutique}">
+					<p:menuitem value="Catégories" action="#{categorieMBBoutique.listeCategoriesBoutique}">
 						<f:param name="i" value="1" />
 					</p:menuitem>
-					<p:menuitem value="Produits"
-						action="#{produitMB.listeProduitsBoutique}">
+					<p:menuitem value="Produits" action="#{produitMBBoutique.listeProduitsBoutique}">
 						<f:param name="i" value="2" />
 					</p:menuitem>
-					<p:menuitem value="Achat" action="achat.xhtml"
+					<p:menuitem value="Achat" action="achatBoutique.xhtml"
 						icon="ui-icon-bullet">
 						<f:param name="i" value="3" />
 					</p:menuitem>
-					<p:menuitem action="index.xhtml" icon="ui-icon-close">
+					<p:menuitem value="Rechercher Produit" action="produitTrouve.xhtml" icon="ui-icon-search">
 						<f:param name="i" value="4" />
+					</p:menuitem>
+					<p:menuitem action="index.xhtml" icon="ui-icon-close">
+						<f:param name="i" value="5" />
 					</p:menuitem>
 				</p:tabMenu>
 			</h:form>

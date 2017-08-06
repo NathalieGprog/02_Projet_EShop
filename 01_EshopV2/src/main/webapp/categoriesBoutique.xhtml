@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+<h:head>
+	<title>Categories Boutique</title>
+</h:head>
+<h:body>
+
+
+			<p:layoutUnit position="center" style=" text-align : center;">
+				<h3>Choisiez votre catégorie</h3>
+			</p:layoutUnit>
+
+
+
+
+			<h:form id="carouselCat">
+				<p:carousel var="cat" value="#{categorieMBBoutique.lCategoriesB}"
+					headerText="Catégorie" itemStyle="text-align:center"
+					responsive="true" >
+					<p:panelGrid columns="2" style="width:100%;margin:10px 0px"
+						columnClasses="label,value" layout="grid"
+						styleClass="ui-panelgrid-blank">
+
+
+						<h:outputText value="Nom:" />
+						<h:outputText value="#{cat.nomCategorie}" />
+
+						<h:outputText value="Year" />
+						<h:outputText value="#{cat.description}" />
+
+
+					</p:panelGrid>
+					<f:facet name="footer" >
+			              <h:outputText value="Il y a #{fn:length(categorieMBBoutique.lCategoriesB)} catégories." />
+			        </f:facet>
+
+				</p:carousel>
+			</h:form>
+
+
+</h:body>
+</html>
