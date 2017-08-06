@@ -6,27 +6,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import fr.adaming.dao.CategorieDaoImpl;
 import fr.adaming.dao.IGeneriqueDao;
 import fr.adaming.entite.Categorie;
 
 @Service("categorieServiceBean")
 @Transactional
-public class CategorieService implements ICategorieService{
+public class CategorieService implements ICategorieService {
 
 	@Autowired
 	private IGeneriqueDao<Categorie> categorieDaoImpl;
+
 	/**
-	 * @param categorieDao the categorieDao to set
+	 * @param categorieDao
+	 *            the categorieDao to set
 	 */
-	public void setCategorieDao(CategorieDaoImpl categorieDao) {
+	public void setCategorieDao(IGeneriqueDao<Categorie> categorieDao) {
 		this.categorieDaoImpl = categorieDao;
 	}
-	
 
 	@Override
-	public void ajouter(Categorie categorie) {
-		categorieDaoImpl.ajouter(categorie);
+	public Categorie ajouter(Categorie categorie) {
+		Categorie varCat = categorieDaoImpl.ajouter(categorie);
+		return varCat;
 	}
 
 	@Override
@@ -44,14 +45,9 @@ public class CategorieService implements ICategorieService{
 		categorieDaoImpl.supprimer(categorie);
 	}
 
-
 	@Override
 	public Categorie obtenirUn(int id) {
 		return categorieDaoImpl.obtenirUn(id);
 	}
 
-
-
-	
-	
 }

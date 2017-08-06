@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -43,7 +41,7 @@
 				</h:panelGrid>
 
 				<p:commandButton value="ajouter"
-					action="#{produitMB.ajouterProduit}" update="@all" />
+					actionListener="#{produitMB.ajouterProduit}" update="@all" />
 
 			</h:form>
 

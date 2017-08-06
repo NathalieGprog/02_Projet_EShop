@@ -8,10 +8,10 @@ import fr.adaming.entite.Categorie;
 import fr.adaming.entite.Produit;
 
 public interface IProduitService extends IGeneriqueService<Produit> {
-	public void ajouter(Produit t);
+	public Produit ajouter(Produit produit);
 	public Collection<Produit> obtenirTous();
-	public void modifier(Produit t);
-	public void supprimer(Produit t);
+	public void modifier(Produit produit);
+	public void supprimer(Produit produit);
 	public Produit obtenirUn(int id);
 		
 	public List<Produit> obtenirTousProduitsParCategorie(Categorie t);

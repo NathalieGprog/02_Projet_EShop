@@ -5,7 +5,7 @@ import java.util.Collection;
 import fr.adaming.entite.LigneCommande;
 
 public interface ILigneCommandeService extends IGeneriqueService<LigneCommande> {
-	public void ajouter(LigneCommande t);
+	public LigneCommande ajouter(LigneCommande t);
 	public Collection<LigneCommande> obtenirTous();
 	public void modifier(LigneCommande t);
 	public void supprimer(LigneCommande t);

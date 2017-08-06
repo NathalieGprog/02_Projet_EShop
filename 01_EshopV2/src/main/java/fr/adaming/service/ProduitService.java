@@ -29,8 +29,9 @@ public class ProduitService implements IProduitService {
 	
 
 	@Override
-	public void ajouter(Produit produit) {
+	public Produit ajouter(Produit produit) {
 		produitDaoImpl.ajouter(produit);
+		return produit;
 	}
 
 	@Override

@@ -7,7 +7,7 @@ import fr.adaming.entite.Categorie;
 import fr.adaming.entite.Produit;
 
 public interface ICategorieService extends IGeneriqueService<Categorie> {
-	public void ajouter(Categorie t);
+	public Categorie ajouter(Categorie t);
 
 	public Collection<Categorie> obtenirTous();
 

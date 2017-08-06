@@ -25,8 +25,9 @@ public class ClientService implements IClientService {
 	
 
 	@Override
-	public void ajouter(Client client) {
+	public Client ajouter(Client client) {
 		clientDaoImpl.ajouter(client);
+		return client;
 	}
 
 	@Override

@@ -25,9 +25,10 @@ public class ClientDaoImpl implements IGeneriqueDao<Client> {
 	}
 
 	@Override
-	public void ajouter(Client client) {
+	public Client ajouter(Client client) {
 		Session s = sf.getCurrentSession();
 		s.save(client);
+		return client;
 	}
 
 	@Override

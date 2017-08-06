@@ -9,7 +9,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
 import fr.adaming.entite.Categorie;
-import fr.adaming.service.IGeneriqueService;
+import fr.adaming.service.ICategorieService;
 
 @ManagedBean(name = "categorieMB")
 @RequestScoped
@@ -21,16 +21,16 @@ public class CategorieManagedBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Categorie categorie;
-//	private Produit produit;
 	private List<Categorie> lCategories;
 
 	@ManagedProperty(value = "#{categorieServiceBean}")
-	private IGeneriqueService<Categorie> categorieService;
+	private ICategorieService categorieService;
 
 	/**
 	 * Constructeur vide
 	 */
 	public CategorieManagedBean() {
+		super();
 		this.categorie = new Categorie();
 	}
 
@@ -47,7 +47,7 @@ public class CategorieManagedBean implements Serializable {
 	 * @param categorieService
 	 *            the categorieService to set
 	 */
-	public void setCategorieService(IGeneriqueService<Categorie> categorieService) {
+	public void setCategorieService(ICategorieService categorieService) {
 		this.categorieService = categorieService;
 	}
 
@@ -91,47 +91,23 @@ public class CategorieManagedBean implements Serializable {
 	}
 
 	public String ajouterCategorie() {
-		categorieService.ajouter(categorie);
+		categorieService.ajouter(this.categorie);
 		this.lCategories = (List<Categorie>) categorieService.obtenirTous();
 		return "categoriesAdmin";
 	}
-	
+
 	public String supprimerCategorie() {
 		categorieService.supprimer(this.categorie);
-		
+
 		this.lCategories = (List<Categorie>) categorieService.obtenirTous();
 		return "categoriesAdmin";
 	}
-	
+
 	public String modifierCategorie() {
 		categorieService.modifier(this.categorie);
-		
+
 		this.lCategories = (List<Categorie>) categorieService.obtenirTous();
 		return "categoriesAdmin";
 	}
-
-	// public String associerCategorie() {
-	// categorieService.associer(categorie);
-	// }
-
-//	@Override
-//	public List<Produit> obtenirTousProduitsParCategorie(Categorie categorie) {
-//
-//		List<Produit> lProduits = (List<Produit>) produitDaoImpl.obtenirTous();
-//		List<Produit> lProduitsParCat = new ArrayList<Produit>();
-//		int i = 0;
-//		for (Produit p : lProduits) {
-//			System.out.println(p.getCategorie());
-//			if (categorie.equals(p.getCategorie())) {
-//				lProduitsParCat.add(p);
-//				i++;
-//			}
-//		}
-//		if (i > 0) {
-//			return lProduitsParCat;
-//		} else {
-//			return null;
-//		}
-//	}
 
 }

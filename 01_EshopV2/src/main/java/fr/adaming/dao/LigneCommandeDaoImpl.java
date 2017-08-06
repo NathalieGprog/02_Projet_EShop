@@ -26,9 +26,10 @@ public class LigneCommandeDaoImpl implements IGeneriqueDao<LigneCommande>{
 	}
 	
 	@Override
-	public void ajouter(LigneCommande ligneCommande) {
+	public LigneCommande ajouter(LigneCommande ligneCommande) {
 		Session s = sf.getCurrentSession();
 		s.save(ligneCommande);
+		return ligneCommande;
 	}
 
 	@Override

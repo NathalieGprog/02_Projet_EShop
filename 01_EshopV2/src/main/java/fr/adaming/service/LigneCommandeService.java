@@ -25,8 +25,9 @@ public class LigneCommandeService implements ILigneCommandeService {
 	
 
 	@Override
-	public void ajouter(LigneCommande ligneCommande) {
+	public LigneCommande ajouter(LigneCommande ligneCommande) {
 		ligneCommandeDaoImpl.ajouter(ligneCommande);
+		return ligneCommande;
 	}
 
 	@Override

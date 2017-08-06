@@ -25,8 +25,9 @@ public class CommandeService implements ICommandeService {
 	
 
 	@Override
-	public void ajouter(Commande commande) {
+	public Commande ajouter(Commande commande) {
 		commandeDaoImpl.ajouter(commande);
+		return commande;
 	}
 
 	@Override

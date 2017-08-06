@@ -28,9 +28,10 @@ public class ProduitDaoImpl implements IProduitDao {
 	}
 
 	@Override
-	public void ajouter(Produit produit) {
+	public Produit ajouter(Produit produit) {
 		Session s = sf.getCurrentSession();
 		s.save(produit);
+		return produit;
 	}
 
 	@Override

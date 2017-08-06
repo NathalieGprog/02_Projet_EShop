@@ -26,9 +26,10 @@ public class CommandeDaoImpl implements IGeneriqueDao<Commande> {
 	}
 	
 	@Override
-	public void ajouter(Commande commande) {
+	public Commande ajouter(Commande commande) {
 		Session s = sf.getCurrentSession();
 		s.save(commande);
+		return commande;
 	}
 
 	@Override

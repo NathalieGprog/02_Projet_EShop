@@ -25,9 +25,10 @@ public class CategorieDaoImpl implements IGeneriqueDao<Categorie> {
 	}
 
 	@Override
-	public void ajouter(Categorie categorie) {
+	public Categorie ajouter(Categorie categorie) {
 		Session s = sf.getCurrentSession();
 		s.save(categorie);
+		return categorie;
 	}
 
 	@Override

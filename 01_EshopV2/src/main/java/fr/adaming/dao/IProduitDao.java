@@ -9,10 +9,10 @@ import fr.adaming.entite.Produit;
 
 public interface IProduitDao extends IGeneriqueDao<Produit> {
 	
-	public void ajouter(Produit t);
+	public Produit ajouter(Produit produit);
 	public Collection<Produit> obtenirTous();
-	public void modifier(Produit t);
-	public void supprimer(Produit t);
+	public void modifier(Produit produit);
+	public void supprimer(Produit produit);
 	public Produit obtenirUn(int id);
 	public Map<Produit,Categorie> obtenirCategorieDuProduit();
 	public int obtenirCleEtrangere(int id);

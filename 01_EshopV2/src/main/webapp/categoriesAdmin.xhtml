@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title>Categories Admin</title>
@@ -15,11 +15,10 @@
 				<h3>Gestion des catégories</h3>
 			</p:layoutUnit>
 
+			<p:separator />
 
-
-			<!-- 			<p:separator /> -->
-			<!-- 			<h:form> -->
-			<p:dataTable var="cat" value="#{categorieMB.lCategories}">
+			<p:dataTable id="IdCategorie" var="cat"
+				value="#{categorieMB.lCategories}">
 				<p:column headerText="Id">
 					<h:outputText value="#{cat.idCategorie}" />
 				</p:column>
@@ -31,30 +30,22 @@
 				<p:column headerText="Description">
 					<h:outputText value="#{cat.description}" />
 				</p:column>
-
-				<!-- 					<p:column headerText="Actions"> -->
-				<!-- 						Modifier la catégorie -->
-				<!-- 						<p:commandButton icon="ui-icon-bullet" -->
-				<!-- 							action="#{categorieMB.modifierCategorie}" /> | -->
-				<!-- 					<p:commandButton icon="ui-icon-trash" action="#" /> -->
-				<!-- 					</p:column> -->
-				<!-- 				<p:commandButton update="@all" action="#{produitMB.supprProduit}" -->
-				<!-- 					icon="ui-icon-close"> -->
-				<!-- 					<f:setPropertyActionListener target="#{produitMB.produit}" -->
-				<!-- 						value="#{produitMB}" /> -->
-				<!-- 				</p:commandButton> -->
-
 			</p:dataTable>
-			<!-- 			</h:form> -->
+
 			<p:separator />
+
 			<h:form style="text-align : right;">
 				<!-- 	Ajouter catégorie -->
 				<p:commandButton icon="ui-icon-plus" action="ajoutCategorie" />
+				<!-- 	Modifier catégorie -->
+				<p:commandButton icon="ui-icon-arrowthickstop-1-n"
+					action="modifCategorie" />
+				<!-- Supprimer Catégorie -->
+				<p:commandButton icon="ui-icon-trash" action="suppCategorie" />
 				<!-- 	Rafraichir la liste Catégorie -->
 				<p:commandButton icon="ui-icon-refresh"
 					action="#{categorieMB.listeCategories}" />
 			</h:form>
-
 
 		</ui:define>
 	</ui:composition>
