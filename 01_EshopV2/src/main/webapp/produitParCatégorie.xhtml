@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Page produitParCat</title>
+</h:head>
+<h:body>
+	<ui:composition
+		template="/WEB-INF/templateAdmin/basicTemplateAdmin.xhtml">
+		<ui:define name="content">
+			<h:form id="formEdit" style="text-align : center;">
+				<p:dataTable var="prod" value="#{produitMB.lProduits}">
+
+				<f:facet name="header">
+          		Gestion des produits
+    	 	  	</f:facet>
+
+					<p:column headerText="Id">
+						<h:outputText value="#{prod.idProduit}" />
+					</p:column>
+
+					<p:column headerText="Designation">
+						<h:outputText value="" />
+						<p:inplace id="designationProduit" editor="true">
+							<p:inputText value="#{prod.designation}" required="true"
+								label="Designation" />
+						</p:inplace>
+					</p:column>
+
+					<p:column headerText="Prix">
+						<h:outputText value="" />
+						<p:inplace id="prixProduit" editor="true">
+							<h:inputText value="#{prod.prix}" label="Prix" required="true" />
+						</p:inplace>
+					</p:column>
+
+					<p:column headerText="Quantite">
+						<h:outputText value="" />
+						<p:inplace id="quantiteProduit" editor="true">
+							<p:inputText value="#{prod.quantite}" required="true"
+								label="Quantite" />
+						</p:inplace>
+					</p:column>
+
+					<p:column headerText="Categorie">
+						<h:outputText value="" />
+						<p:inplace id="categorieProduit" editor="true">
+							<p:inputText value="#{prod.categorie}"
+								required="true" label="Categorie" />
+						</p:inplace>
+					</p:column>
+
+					<p:column>
+						<p:commandButton update="@all" action="#{produitMB.supprProduit}"
+							icon="ui-icon-close">
+							<f:setPropertyActionListener target="#{produitMB.produit}"
+								value="#{produitMB}" />
+						</p:commandButton>
+
+
+						<p:commandButton update="@all" action="#{produitMB.modifProduit}"
+							icon="ui-icon-disk">
+							<f:setPropertyActionListener target="#{produitMB.produit}"
+								value="#{produitMB}" />
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+
+
+			</h:form>
+			<p:commandButton value="ajouter" action="#{ajout.xhtml}" />
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Ajout Produit</title>
+</h:head>
+<h:body>
+	<ui:composition
+		template="/WEB-INF/templateAdmin/basicTemplateAdmin.xhtml">
+		<ui:define name="content">
+	<h:form>
+		<h:panelGrid columns="2">
+			<p:outputLabel for="idDesignation" value="Designation : " />
+			<p:inputText id="idDesignation"
+				value="#{produitMB.produit.designation}" />
+
+			<p:outputLabel for="idDecription" value="Decription : " />
+			<p:inputText id="idDecription"
+				value="#{produitMB.produit.description}" />
+
+			<p:outputLabel for="idPrix" value="Prix : " />
+			<p:inputText id="idPrix" value="#{produitMB.produit.prix}" />
+
+			<p:outputLabel for="idQuantite" value="Quantité : " />
+			<p:inputText id="idQuantite" value="#{produitMB.produit.quantite}" />
+
+			<p:outputLabel for="idSelectionne" value="Selectionné : " />
+			<p:inputText id="idSelectionne"
+				value="#{produitMB.produit.selectionne}" />
+
+
+			<p:outputLabel for="cat" value="Catégorie : " />
+			<p:selectOneMenu id="cat" value="#{categorieMB.categorie}" >
+				<f:selectItems value="#{categorieMB.lCategories}" var="c"
+					itemLabel="#{c.nomCategorie}" itemValue="#{c}" />
+			</p:selectOneMenu>
+
+		</h:panelGrid>
+
+		<p:commandButton value="ajouter" action="#{produitMB.ajouterProduit}" update="@all"/>
+
+	</h:form>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
