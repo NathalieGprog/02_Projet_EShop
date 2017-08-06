@@ -8,8 +8,9 @@
 	<title>Categories Boutique</title>
 </h:head>
 <h:body>
-
-
+<ui:composition	template="/WEB-INF/templateAdmin/basicTemplateBoutique.xhtml">
+		
+		<ui:define name="contentB">
 			<p:layoutUnit position="center" style=" text-align : center;">
 				<h3>Choisiez votre catégorie</h3>
 			</p:layoutUnit>
@@ -41,6 +42,7 @@
 				</p:carousel>
 			</h:form>
 
-
+		</ui:define>
+	</ui:composition>
 </h:body>
 </html>

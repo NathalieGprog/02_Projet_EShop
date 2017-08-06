@@ -147,7 +147,7 @@ public class ProduitManagedBeanBoutique implements Serializable {
 	    }
 	 
 	 public String afficheProduit(){
-		 return "produitTrouve.xhtml";
+		 return "produitTrouveBoutique.xhtml";
 	 }
 	
 //	public String obtenirCategorieDuProduitAffche(){

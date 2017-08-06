@@ -3,14 +3,16 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-<h:head>
-	<title>IGNORED</title>
-</h:head>
 
+<h:head>
+
+<title>Insert title here</title>
+</h:head>
 <h:body>
 	<ui:composition>
+				<br />
 		<div>
-			<h1 align="center">Astre Shop</h1>
+			<h1 align="center">Astro-Shop</h1>
 			<h2 align="center">Vous êtes au bon endroit pour décrocher la Lune!</h2>
 		</div>
 		
@@ -18,7 +20,7 @@
 
 		<div align="right">
 
-				<p:commandButton value="Rechercher Produit" action="produitTrouve.xhtml" icon=" ui-icon-search"/>
+				<p:commandButton value="Rechercher Produit" action="produitTrouveBoutique.xhtml" icon=" ui-icon-search"/>
 				<br/>
 		</div>
 		
@@ -29,17 +31,17 @@
 						icon="ui-icon-home">
 						<f:param name="i" value="0" />
 					</p:menuitem>
-					<p:menuitem value="Catégories" action="#{categorieMBBoutique.listeCategoriesBoutique}">
+					<p:menuitem value="Catégories" action="categoriesBoutique.xhtml">
 						<f:param name="i" value="1" />
 					</p:menuitem>
-					<p:menuitem value="Produits" action="#{produitMBBoutique.listeProduitsBoutique}">
+					<p:menuitem value="Produits" action="produitsBoutique.xhtml">
 						<f:param name="i" value="2" />
 					</p:menuitem>
 					<p:menuitem value="Achat" action="achatBoutique.xhtml"
 						icon="ui-icon-bullet">
 						<f:param name="i" value="3" />
 					</p:menuitem>
-					<p:menuitem value="Rechercher Produit" action="produitTrouve.xhtml" icon="ui-icon-search">
+					<p:menuitem value="Rechercher Produit" action="produitTrouveBoutique.xhtml" icon="ui-icon-search">
 						<f:param name="i" value="4" />
 					</p:menuitem>
 					<p:menuitem action="index.xhtml" icon="ui-icon-close">
