@@ -1,10 +1,5 @@
 package fr.adaming.managedBean;
 
-public class CategorieManagedBean {
-
-}
-package fr.adaming.ManagedBean;
-
 import java.io.Serializable;
 import java.util.List;
 

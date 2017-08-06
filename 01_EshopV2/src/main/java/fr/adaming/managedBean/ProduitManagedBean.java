@@ -1,4 +1,4 @@
-package fr.adaming.ManagedBean;
+package fr.adaming.managedBean;
 
 import java.io.Serializable;
 import java.util.List;
