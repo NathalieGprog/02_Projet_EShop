@@ -2,7 +2,6 @@ package fr.adaming.managedBean;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -11,8 +10,6 @@ import javax.faces.bean.RequestScoped;
 
 import fr.adaming.entite.Categorie;
 import fr.adaming.entite.Produit;
-import fr.adaming.service.CategorieService;
-import fr.adaming.service.IGeneriqueService;
 import fr.adaming.service.IProduitService;
 
 @ManagedBean(name = "produitMB")
@@ -25,29 +22,31 @@ public class ProduitManagedBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Produit produit;
-	private Categorie categorie;
 	private List<Produit> lProduits;
-	private List<Categorie> lCategorie;
-//	private Map<Produit,Categorie> mapProduitCat;
+	private Categorie categorie;
+	// private Map<String, Categorie> mapCatParNom;
 
 	@ManagedProperty(value = "#{produitServiceBean}")
 	private IProduitService produitService;
+	// @ManagedProperty(value = "#{categorieServiceBean}")
+	// private ICategorieService categorieService;
 
-//	private IGeneriqueService<Categorie> categorieService = new CategorieService();
+	// private IGeneriqueService<Categorie> categorieService = new
+	// CategorieService();
 	/**
 	 * Constructeur vide
 	 */
 	public ProduitManagedBean() {
 		this.produit = new Produit();
-//		this.categorie = new Categorie();
+		this.categorie = new Categorie();
 	}
-	
+
 	@PostConstruct // la méthode sera exécutée après
 	public void init() {
 		this.lProduits = (List<Produit>) produitService.obtenirTous();
-//		this.mapProduitCat = produitService.obtenirCategorieDuProduit();
-//		this.lCategorie = (List<Categorie>) categorieService.obtenirTous();
+		// this.setMapCatParNom(categorieService.MapCategoriesParNom());
 	}
+
 	/*************************************************
 	 * Setters et Getters
 	 *************************************************/
@@ -90,7 +89,6 @@ public class ProduitManagedBean implements Serializable {
 		this.lProduits = lProduits;
 	}
 
-		
 	/**
 	 * @return the categorie
 	 */
@@ -99,56 +97,46 @@ public class ProduitManagedBean implements Serializable {
 	}
 
 	/**
-	 * @param categorie the categorie to set
+	 * @param categorie
+	 *            the categorie to set
 	 */
 	public void setCategorie(Categorie categorie) {
 		this.categorie = categorie;
 	}
 
-//	/**
-//	 * @return the lCategorie
-//	 */
-//	public List<Categorie> getlCategorie() {
-//		return lCategorie;
-//	}
-//
-//	/**
-//	 * @param lCategorie the lCategorie to set
-//	 */
-//	public void setlCategorie(List<Categorie> lCategorie) {
-//		this.lCategorie = lCategorie;
-//	}
+	// public Map<String, Categorie> getMapCatParNom() {
+	// return mapCatParNom;
+	// }
+
+	// public void setMapCatParNom(Map<String, Categorie> mapCatParNom) {
+	// this.mapCatParNom = mapCatParNom;
+	// }
 
 	/*************************************************
 	 * Les méthodes services
 	 *************************************************/
 	public String listeProduits() {
 		this.lProduits = (List<Produit>) produitService.obtenirTous();
-		return "produitsAdmin.xhtml";
+		return "produitsAdmin";
 	}
-	
+
 	public String ajouterProduit() {
-		System.out.println("cat " + categorie +" produit" + produit);
-		produit.setCategorie(this.categorie);
+		// System.out.println("cat " + categorie + " produit" + produit);
+		// produit.setCategorie(this.categorie);
 		produitService.ajouter(produit);
 		this.lProduits = (List<Produit>) produitService.obtenirTous();
-		return "ajout";
+		return "produitsAdmin";
 
 	}
-	
+
 	public String supprProduit() {
 		produitService.supprimer(produit);
 		return "produitParCategorie";
 	}
-	
+
 	public String modifProduit() {
 		produitService.modifier(produit);
 		return "produitParCategorie";
 	}
-	
-//	public String obtenirCategorieDuProduitAffche(){
-//		Map<Produit,Categorie> mapProduitCat = produitService.obtenirCategorieDuProduit();
-//		return "test";
-//	}
 
 }

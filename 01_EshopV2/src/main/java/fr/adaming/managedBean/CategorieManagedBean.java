@@ -2,6 +2,7 @@ package fr.adaming.managedBean;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -22,6 +23,7 @@ public class CategorieManagedBean implements Serializable {
 
 	private Categorie categorie;
 	private List<Categorie> lCategories;
+	private Map<String, Categorie> mapCatParNom;
 
 	@ManagedProperty(value = "#{categorieServiceBean}")
 	private ICategorieService categorieService;
@@ -37,6 +39,7 @@ public class CategorieManagedBean implements Serializable {
 	@PostConstruct // la méthode sera exécutée après
 	public void init() {
 		this.lCategories = (List<Categorie>) categorieService.obtenirTous();
+		this.mapCatParNom = categorieService.MapCategoriesParNom();
 	}
 
 	/*************************************************
@@ -79,6 +82,14 @@ public class CategorieManagedBean implements Serializable {
 	 */
 	public void setlCategories(List<Categorie> lCategories) {
 		this.lCategories = lCategories;
+	}
+
+	public Map<String, Categorie> getMapCatParNom() {
+		return mapCatParNom;
+	}
+
+	public void setMapCatParNom(Map<String, Categorie> mapCatParNom) {
+		this.mapCatParNom = mapCatParNom;
 	}
 
 	/*************************************************

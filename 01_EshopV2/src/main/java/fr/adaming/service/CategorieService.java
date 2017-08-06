@@ -1,6 +1,8 @@
 package fr.adaming.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,6 +50,17 @@ public class CategorieService implements ICategorieService {
 	@Override
 	public Categorie obtenirUn(int id) {
 		return categorieDaoImpl.obtenirUn(id);
+	}
+
+	@Override
+	public Map<String, Categorie> MapCategoriesParNom() {
+		Map<String, Categorie> mapCatParNom = new HashMap<String, Categorie>();
+		
+		for (Categorie c : categorieDaoImpl.obtenirTous()) {
+			mapCatParNom.put(c.getNomCategorie(), c);
+		}
+		
+		return mapCatParNom;
 	}
 
 }

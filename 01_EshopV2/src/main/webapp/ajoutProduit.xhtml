@@ -8,9 +8,6 @@
 	<title>Ajout Produit</title>
 </h:head>
 <h:body>
-	<ui:composition
-		template="/WEB-INF/templateAdmin/basicTemplateAdmin.xhtml">
-		<ui:define name="content">
 			<h:form>
 				<h:panelGrid columns="2">
 					<p:outputLabel for="idDesignation" value="Designation : " />
@@ -33,9 +30,8 @@
 
 
 					<p:outputLabel for="cat" value="Catégorie : " />
-					<p:selectOneMenu id="cat" value="#{categorieMB.categorie}">
-						<f:selectItems value="#{categorieMB.lCategories}" var="c"
-							itemLabel="#{c.nomCategorie}" itemValue="#{c}" />
+					<p:selectOneMenu id="cat" value="#{produitMB.categorie}" effect="fold" editable="true">
+						<f:selectItems value="#{categorieMB.mapCatParNom}" />
 					</p:selectOneMenu>
 
 				</h:panelGrid>
@@ -44,8 +40,5 @@
 					actionListener="#{produitMB.ajouterProduit}" update="@all" />
 
 			</h:form>
-
-		</ui:define>
-	</ui:composition>
 </h:body>
 </html>

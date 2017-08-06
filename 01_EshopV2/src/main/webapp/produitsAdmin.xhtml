@@ -12,6 +12,11 @@
 	<ui:composition
 		template="/WEB-INF/templateAdmin/basicTemplateAdmin.xhtml">
 		<ui:define name="content">
+		
+			<p:layoutUnit position="center" style=" text-align : center;">
+				<h3>Gestion des produits</h3>
+			</p:layoutUnit>
+			
 			<p:dataTable var="prod" value="#{produitMB.lProduits}">
 				<p:column headerText="Id">
 					<h:outputText value="#{prod.idProduit}" />
@@ -35,6 +40,13 @@
 					<h:outputText value="#{prod.categorie.nomCategorie}" />
 				</p:column>
 			</p:dataTable>
+
+			<p:separator />
+
+			<h:form style="text-align : right;">
+				<!-- 	Ajouter catégorie -->
+				<p:commandButton icon="ui-icon-plus" action="ajoutProduit" />
+			</h:form>
 
 		</ui:define>
 	</ui:composition>
