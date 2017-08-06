@@ -1,4 +1,4 @@
-package fr.adaming.model;
+package fr.adaming.entite;
 
 import java.io.Serializable;
 
