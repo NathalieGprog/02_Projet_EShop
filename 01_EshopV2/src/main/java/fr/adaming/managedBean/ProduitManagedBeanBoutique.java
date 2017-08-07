@@ -16,6 +16,11 @@ import fr.adaming.entite.Produit;
 import fr.adaming.service.CategorieService;
 import fr.adaming.service.IGeneriqueService;
 import fr.adaming.service.IProduitService;
+/**
+ * ManagedBean de l'entité Produit qui gére le côté Front-Office
+ * @author inti-0398
+ *
+ */
 
 @ManagedBean(name = "produitMBBoutique")
 @ViewScoped
@@ -33,6 +38,7 @@ public class ProduitManagedBeanBoutique implements Serializable {
 	private List<Categorie> lCategorieB;
 //	private Map<Produit,Categorie> mapProduitCat;
 
+
 	@ManagedProperty(value = "#{produitServiceBean}")
 	private IProduitService produitService;
 
@@ -45,6 +51,9 @@ public class ProduitManagedBeanBoutique implements Serializable {
 //		this.categorie = new Categorie();
 	}
 	
+	/**
+	 * Méthode PostConstruct
+	 */
 	@PostConstruct // la méthode sera exécutée après
 	public void init() {
 		this.lProduitsB = (List<Produit>) produitService.obtenirTous();
