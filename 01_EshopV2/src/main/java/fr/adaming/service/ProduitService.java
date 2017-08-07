@@ -80,17 +80,5 @@ public class ProduitService implements IProduitService {
 		return produitDaoImpl.obtenirCategorieDuProduit();
 		
 	}
-
-
-	@Override
-	public void ajouterProduitParCatégorie(Produit p, Categorie c) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	
-
-	
 	
 }

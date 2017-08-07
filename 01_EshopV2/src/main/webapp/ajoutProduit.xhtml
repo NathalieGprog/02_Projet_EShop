@@ -24,20 +24,17 @@
 					<p:outputLabel for="idQuantite" value="Quantité : " />
 					<p:inputText id="idQuantite" value="#{produitMB.produit.quantite}" />
 
-					<p:outputLabel for="idSelectionne" value="Selectionné : " />
-					<p:inputText id="idSelectionne"
-						value="#{produitMB.produit.selectionne}" />
 
-
-					<p:outputLabel for="cat" value="Catégorie : " />
-					<p:selectOneMenu id="cat" value="#{produitMB.categorie}" effect="fold" editable="true">
+					<h:outputLabel for="idCategorie" value="Catégorie : " />
+					<h:selectOneMenu id="idCategorie" value="#{produitMB.produit.categorie}" effect="fold" editable="true">
 						<f:selectItems value="#{categorieMB.mapCatParNom}" />
-					</p:selectOneMenu>
+					</h:selectOneMenu>
 
 				</h:panelGrid>
 
 				<p:commandButton value="ajouter"
 					actionListener="#{produitMB.ajouterProduit}" update="@all" />
+					<h:messages/>
 
 			</h:form>
 </h:body>

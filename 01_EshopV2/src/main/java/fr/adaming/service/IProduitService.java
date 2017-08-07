@@ -13,9 +13,7 @@ public interface IProduitService extends IGeneriqueService<Produit> {
 	public void modifier(Produit produit);
 	public void supprimer(Produit produit);
 	public Produit obtenirUn(int id);
-		
+	
 	public List<Produit> obtenirTousProduitsParCategorie(Categorie t);
 	public Map<Produit,Categorie> obtenirCategorieDuProduit();
-	 
-	public void ajouterProduitParCatégorie (Produit p, Categorie c);
 }
