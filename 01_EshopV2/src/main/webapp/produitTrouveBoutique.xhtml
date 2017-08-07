@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -17,7 +18,7 @@
 		
 				
 		
-			<h:form>
+			<h:form id="form">
 			<div align="right">
 				<p:outputLabel value="Rechercher un produit : "
 					for="rechercheHeader" />
@@ -26,30 +27,30 @@
 					completeMethod="#{produitMBBoutique.completeProduitB}" var="prod"
 					itemLabel="#{prod.designation}"
 					itemValue="#{prod}" converter="#{produitConverter}"
-					forceSelection="true" />
-					<h:messages style="color:red" />
-				<p:commandButton action="#{produitMBBoutique.rechercherProduit}" update="output msgs" icon=" ui-icon-search" style="margin-left: 10px;"/>
+					forceSelection="true"/>
+				<p:commandButton value="Rechercher" action="#{produitMBBoutique.rechercherProduit}" icon=" ui-icon-search" style="margin-left: 10px;"/>
+			</div>
+		</h:form>
 			
-		</div>
-		
-		
-		
 			<h1 style="text-align: center">Produit Trouvé</h1>
 
-	<p:dataTable id="output" var="prod" value="#{produitMBBoutique.produitB}">
-		<p:column headerText="Description">
-			<h:outputText value="#{produitMBBoutique.produitB.description}" />
-		</p:column>
+	<p:panel header="Produit" style="text-align:center">
+            <h:panelGrid columns="3" style="width:100%">
+             <p:column headerText="Description">
+				<h:outputText value="#{produitMBBoutique.produitB.description}" />
+			</p:column>
+	
+			<p:column headerText="Description">
+				<h:outputText value="#{produitMBBoutique.produitB.description}" />
+			</p:column>
+	
+			<p:column headerText="Prix">
+				<h:outputText value="#{produitMBBoutique.produitB.prix}" />
+			</p:column>
+            </h:panelGrid>
+        </p:panel>
 
-		<p:column headerText="Description">
-			<h:outputText value="#{produitMBBoutique.produitB.description}" />
-		</p:column>
 
-		<p:column headerText="Prix">
-			<h:outputText value="#{produitMBBoutique.produitB.prix}" />
-		</p:column>
-	</p:dataTable>
-	</h:form>
 	
 <!-- 		</ui:define> -->
 <!-- 	</ui:composition> -->

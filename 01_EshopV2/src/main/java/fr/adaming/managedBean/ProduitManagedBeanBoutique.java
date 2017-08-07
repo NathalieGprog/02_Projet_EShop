@@ -9,6 +9,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 
 import fr.adaming.entite.Categorie;
 import fr.adaming.entite.Produit;
@@ -17,7 +18,7 @@ import fr.adaming.service.IGeneriqueService;
 import fr.adaming.service.IProduitService;
 
 @ManagedBean(name = "produitMBBoutique")
-@RequestScoped
+@ViewScoped
 public class ProduitManagedBeanBoutique implements Serializable {
 
 	/**
@@ -147,9 +148,6 @@ public class ProduitManagedBeanBoutique implements Serializable {
 	 }
 	 
 	 public String rechercherProduit(){
-		 System.out.println(this.produitB);
-		 System.out.println("coucou" + this.produitB.getIdProduit());
-		 this.produitB = produitService.obtenirUn(this.produitB.getIdProduit());
 		 return "produitTrouveBoutique.xhtml";
 	 }
 	
