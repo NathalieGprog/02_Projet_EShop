@@ -11,13 +11,14 @@
 
 
 
-	<ui:composition
-		template="/WEB-INF/templateAdmin/basicTemplateBoutique.xhtml">
-		<ui:define name="content">
+<!-- 	<ui:composition -->
+<!-- 		template="/WEB-INF/templateAdmin/basicTemplateBoutique.xhtml"> -->
+<!-- 		<ui:define name="content"> -->
 		
 				
-		<div align="right">
+		
 			<h:form>
+			<div align="right">
 				<p:outputLabel value="Rechercher un produit : "
 					for="rechercheHeader" />
 				<p:autoComplete id="rechercheHeader"
@@ -27,29 +28,30 @@
 					itemValue="#{prod}" converter="#{produitConverter}"
 					forceSelection="true" />
 					<h:messages style="color:red" />
-			</h:form>
+				<p:commandButton action="#{produitMBBoutique.rechercherProduit}" update="output msgs" icon=" ui-icon-search" style="margin-left: 10px;"/>
+			
 		</div>
 		
 		
 		
-			<h1 style="text-align: center">Client Trouvé</h1>
+			<h1 style="text-align: center">Produit Trouvé</h1>
 
-	<p:dataTable var="prod" value="#{produitMB.produit}">
-		<p:column headerText="Id">
-			<h:outputText value="#{produitMB.produit.description}" />
+	<p:dataTable id="output" var="prod" value="#{produitMBBoutique.produitB}">
+		<p:column headerText="Description">
+			<h:outputText value="#{produitMBBoutique.produitB.description}" />
 		</p:column>
 
-		<p:column headerText="Nom">
-			<h:outputText value="#{produitMB.produit.description}" />
+		<p:column headerText="Description">
+			<h:outputText value="#{produitMBBoutique.produitB.description}" />
 		</p:column>
 
-		<p:column headerText="Prénom">
-			<h:outputText value="#{produitMB.produit.prix}" />
+		<p:column headerText="Prix">
+			<h:outputText value="#{produitMBBoutique.produitB.prix}" />
 		</p:column>
-
-
 	</p:dataTable>
-		</ui:define>
-	</ui:composition>
+	</h:form>
+	
+<!-- 		</ui:define> -->
+<!-- 	</ui:composition> -->
 </h:body>
 </html>

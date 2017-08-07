@@ -132,21 +132,24 @@ public class ProduitManagedBeanBoutique implements Serializable {
 	
 	
 	 public List<Produit> completeProduitB (String query){
-		 	System.out.println("coucou");
+
 	        List<Produit> suggestions = new ArrayList<>();//an instance of list
-	        System.out.println("coucou2");
 	        for(Produit prod : this.lProduitsB){
-	        	System.out.println("coucou3");
-		        if(prod.getDescription().startsWith(query)){
-		        	System.out.println("coucou4");
+		        if(prod.getDesignation().startsWith(query)){
 		           suggestions.add(prod);
 		         }
 		    }
-	        System.out.println("coucou5");
 		    return suggestions;
 	    }
 	 
 	 public String afficheProduit(){
+		 return "produitTrouveBoutique.xhtml";
+	 }
+	 
+	 public String rechercherProduit(){
+		 System.out.println(this.produitB);
+		 System.out.println("coucou" + this.produitB.getIdProduit());
+		 this.produitB = produitService.obtenirUn(this.produitB.getIdProduit());
 		 return "produitTrouveBoutique.xhtml";
 	 }
 	
