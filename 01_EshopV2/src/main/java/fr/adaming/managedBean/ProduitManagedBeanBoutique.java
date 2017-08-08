@@ -17,8 +17,13 @@ import fr.adaming.service.CategorieService;
 import fr.adaming.service.IGeneriqueService;
 import fr.adaming.service.IProduitService;
 
+/**
+ * ManagedBean de l'entité Produit pour le front-office
+ * @author inti-0398
+ *
+ */
 @ManagedBean(name = "produitMBBoutique")
-@ViewScoped
+@RequestScoped
 public class ProduitManagedBeanBoutique implements Serializable {
 
 	/**
@@ -45,6 +50,9 @@ public class ProduitManagedBeanBoutique implements Serializable {
 //		this.categorie = new Categorie();
 	}
 	
+	/**
+	 * Méthode d'initialisation de la liste des produits
+	 */
 	@PostConstruct // la méthode sera exécutée après
 	public void init() {
 		this.lProduitsB = (List<Produit>) produitService.obtenirTous();
@@ -126,12 +134,22 @@ public class ProduitManagedBeanBoutique implements Serializable {
 	/*************************************************
 	 * Les méthodes services
 	 *************************************************/
+	
+	/**
+	 * recupère la liste des produits et redirige vers la page produit du front-office
+	 * @return
+	 */
 	public String listeProduitsBoutique() {
 		this.lProduitsB = (List<Produit>) produitService.obtenirTous();
 		return "produitsBoutique.xhtml";
 	}
 	
-	
+	/**
+	 * Méthode pour la balise <p:autoComplete> 
+	 * propose des catégories en fonction de la liste stockée en base de données
+	 * @param query
+	 * @return List<Produit> suggestions
+	 */
 	 public List<Produit> completeProduitB (String query){
 
 	        List<Produit> suggestions = new ArrayList<>();//an instance of list
@@ -143,10 +161,14 @@ public class ProduitManagedBeanBoutique implements Serializable {
 		    return suggestions;
 	    }
 	 
-	 public String afficheProduit(){
-		 return "produitTrouveBoutique.xhtml";
-	 }
-	 
+
+//	 public String afficheProduit(){
+//		 return "produitTrouveBoutique.xhtml";
+//	 }
+	/**
+	* ajoute un produit et redirige vers la page produit du back-office
+	* @return
+	*/
 	 public String rechercherProduit(){
 		 return "produitTrouveBoutique.xhtml";
 	 }

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import fr.adaming.dao.IGeneriqueDao;
+
 import fr.adaming.dao.IProduitDao;
 import fr.adaming.dao.ProduitDaoImpl;
 import fr.adaming.entite.Categorie;
@@ -36,7 +36,7 @@ public class ProduitService implements IProduitService {
 
 	@Override
 	public List<Produit> obtenirTous() {
-		return (List<Produit>) produitDaoImpl.obtenirTous();
+		return produitDaoImpl.obtenirTous();
 	}
 
 	@Override
