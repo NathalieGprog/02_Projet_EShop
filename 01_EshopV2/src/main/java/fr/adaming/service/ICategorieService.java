@@ -1,6 +1,6 @@
 package fr.adaming.service;
 
-import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import fr.adaming.entite.Categorie;
@@ -8,7 +8,7 @@ import fr.adaming.entite.Categorie;
 public interface ICategorieService extends IGeneriqueService<Categorie> {
 	public Categorie ajouter(Categorie t);
 
-	public Collection<Categorie> obtenirTous();
+	public List<Categorie> obtenirTous();
 
 	public void modifier(Categorie t);
 

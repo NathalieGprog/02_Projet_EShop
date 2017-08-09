@@ -29,16 +29,21 @@
 
 
 
+
 					<p:outputLabel for="cat" value="Catégorie : " />
-					<p:selectOneMenu id="cat" value="#{produitMB.categorie}" effect="fold" editable="true">
-						<f:selectItems value="#{categorieMB.mapCatParNom}" />
+					<p:selectOneMenu id="cat" value="#{produitMB.b}" >
+						<f:selectItems value="#{categorieMB.lCategories}" var="c"
+							itemLabel="#{c.nomCategorie}" itemValue="#{c.idCategorie}"/>
 					</p:selectOneMenu>
+					<h:message for="cat"/>
 
 				</h:panelGrid>
 
 				<p:commandButton value="ajouter"
-					actionListener="#{produitMB.ajouterProduit}" update="@all" />
-
+					action="#{produitMB.ajouterProduit}" update="@all" />
+				<p:commandButton value="retour"
+					action="produitsAdmin.xhtml" icon="ui-icon-arrowreturnthick-1-w"/>
 			</h:form>
+
 </h:body>
 </html>

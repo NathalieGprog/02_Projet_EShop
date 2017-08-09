@@ -1,6 +1,5 @@
 package fr.adaming.dao;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -11,7 +10,7 @@ public interface IProduitDao extends IGeneriqueDao<Produit> {
 
 	public Produit ajouter(Produit produit);
 
-	public Collection<Produit> obtenirTous();
+	public List<Produit> obtenirTous();
 
 	public void modifier(Produit produit);
 
